@@ -48,12 +48,6 @@ const chatsState = {
 
 const wss = new Websocket.Server({ port: 4000 })
 
-// const heartBeatTime = 50000
-
-const chatsHistory = {
-
-}
-
 
 wss.on('connection', function (ws) {
     ws.isAlive = true
@@ -87,9 +81,7 @@ wss.on('connection', function (ws) {
         })
     })
 
-    ws.on('close', function (message) {
-        wss.clients.forEach(function each (client) {
-
-        })
+    ws.on('close', function () {
+        console.log('connection closed')
     })
 })
